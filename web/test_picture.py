@@ -23,10 +23,10 @@ _user_logs_file = os.path.join(
 _user_result_dir = os.path.join(_out_root_dir, 'out', 'core_alg', 'results')
 # process more files
 multi_files = True
-index_default = 2
+index_default = 4
 # switch for figure
 show_figure = False
-bone_type = Bone.Type.TIBIA
+bone_type = Bone.Type.FEMUR
 # image from iphone_ten or structure sensor
 structure_sensor = True
 
@@ -34,10 +34,11 @@ structure_sensor = True
 def load_file(index=index_default):
     bone_type_str = bone_type.name.lower()
     if structure_sensor:
-        obj_dir = os.path.join(_root_dir, 'data', 'picture', bone_type_str,
-                               '{}_one_{}.obj'.format(bone_type_str, str(index)))
+        device = 'structure_sensor'
     else:
-        obj_dir = os.path.join(_root_dir, 'data', 'picture', bone_type_str, 'big-pic-4.obj')
+        device = 'iphone_ten'
+    obj_dir = os.path.join(_root_dir, 'data', device, 'picture', bone_type_str,
+                           '{}_one_{}.obj'.format(bone_type_str, str(index)))
 
     logging.info('Loading {0} dataset from {1}'.format(bone_type_str, obj_dir))
     scan_obj = pywavefront.Wavefront(

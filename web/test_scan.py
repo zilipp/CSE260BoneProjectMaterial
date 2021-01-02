@@ -25,10 +25,10 @@ _user_result_dir = os.path.join(_out_root_dir, 'out', 'core_alg', 'results')
 multi_files = False
 index_default = 0
 # switch for figure
-show_figure = False
-bone_type = Bone.Type.FEMUR
+show_figure = True
+bone_type = Bone.Type.RADIUS
 # switch for structure sensor or iphone10
-structure_sensor = False
+structure_sensor = True
 
 
 def load_file(index=index_default):
